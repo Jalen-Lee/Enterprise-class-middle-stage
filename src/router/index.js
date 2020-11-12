@@ -16,16 +16,43 @@ Vue.use(VueRouter)
 
 const constantRoutes = [
   {
+    path: '/redirect',
+    component: Layout,
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect')
+      }
+    ]
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
+  },
+  {
+    path:'/dashBoard',
+    component: Layout,
+    redirect: '/dashBoard/analysis',
     children: [
       {
-        path:'dashboard',
-        component: () => import('@/views/dashboard'),
-        name: 'Dashboard',
-        meta: {title:"中控台"}
-      }
+        path:'/dashBoard/analysis',
+        component: () => import('@/views/analysis'),
+        name: 'Analysis',
+        meta: {title:"分析"}
+      },
+      {
+        path:'/dashboard/monitor',
+        component: () => import('@/views/monitor'),
+        name: 'Monitor',
+        meta: {title:"监控"}
+      },
+      {
+        path:'/dashboard/workplace',
+        component: () => import('@/views/workplace'),
+        name: 'Workplace',
+        meta: {title:"工作台"}
+      },
     ]
   },
   {

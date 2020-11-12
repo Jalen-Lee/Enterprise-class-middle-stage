@@ -1,7 +1,7 @@
 <template>
   <section class="app-main-wrapper">
     <transition name="fade-transform" mode="out-in">
-      <keep-alive >
+      <keep-alive :exclude="['redirect']">
         <router-view  />
       </keep-alive>
     </transition>
@@ -25,6 +25,6 @@
     flex: 1 0 0;
     overflow: auto;
     padding: 20px;
-    background-color: antiquewhite;
+    //background-color: antiquewhite;
   }
 </style>

@@ -1,19 +1,33 @@
 <template>
-  <navbar-button>
-    <div>
-      <avatar label="David"></avatar>
-    </div>
-  </navbar-button>
+  <el-dropdown @command="handleCommand">
+    <navbar-button>
+      <div>
+        <avatar :label="username"  :src="avatar"></avatar>
+      </div>
+    </navbar-button>
+    <el-dropdown-menu slot="dropdown">
+      <el-dropdown-item icon="iconfont icon-user" command="profile">个人中心</el-dropdown-item>
+      <el-dropdown-item icon="iconfont icon-setting" command="setting">个人设置</el-dropdown-item>
+      <el-dropdown-item divided icon="iconfont icon-logout" command="logout">退出登录</el-dropdown-item>
+    </el-dropdown-menu>
+  </el-dropdown>
 </template>
 
 <script>
   import NavbarButton from "@/layout/childComps/Navbar/childComps/NavbarButton";
   export default {
     name: "UserAvatar",
-    components:{NavbarButton}
+    components:{NavbarButton},
+    data(){
+      return {
+        avatar:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        username:'David',
+      }
+    },
+    methods:{
+      handleCommand(command){
+        this.$message(command)
+      }
+    }
   }
 </script>
-
-<style scoped>
-
-</style>

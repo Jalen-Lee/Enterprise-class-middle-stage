@@ -13,7 +13,12 @@
     components:{NavbarButton},
     methods:{
       handleClick(){
-        console.log("点击刷新页面")
+        console.log("刷新",this.$route)
+        this.$nextTick(()=>{
+          this.$router.replace({
+            path: '/redirect' + this.$route.path
+          })
+        })
       }
     }
   }

@@ -26,7 +26,6 @@
     .main-container{
       display: flex;
       flex: 1;
-      //background-color: aqua;
       flex-direction: column;
     }
   }
