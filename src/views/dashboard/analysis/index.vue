@@ -1,0 +1,134 @@
+<template>
+  <div>
+    <div>{{name}}</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+    <div>这是分析页</div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "index",
+    data(){
+      return{
+
+      }
+    },
+    computed:{
+      name(){
+        return this.$store.state.app.name
+      }
+    },
+    mounted() {
+      console.log("state",this.name)
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>

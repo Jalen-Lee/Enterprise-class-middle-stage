@@ -23,7 +23,6 @@
   .app-main-wrapper{
     display: flex;
     flex: 1 0 0;
-    overflow: auto;
     padding: 20px;
     //background-color: antiquewhite;
   }

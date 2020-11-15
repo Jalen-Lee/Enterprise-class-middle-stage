@@ -2,7 +2,7 @@
   <div class="layout-wrapper">
     <sidebar></sidebar>
     <div class="main-container">
-      <div>
+      <div class="main-container-top">
         <navbar></navbar>
         <tags-view></tags-view>
       </div>
@@ -24,9 +24,14 @@
     height: 100%;
     display: flex;
     .main-container{
-      display: flex;
       flex: 1;
-      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+      &-top{
+        position:sticky;
+        left: 0;
+        top: 0;
+      }
     }
   }
 </style>

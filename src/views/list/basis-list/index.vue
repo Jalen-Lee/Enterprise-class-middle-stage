@@ -1,12 +1,12 @@
 <template>
-  <div>
-    这是分析页
+  <div class="basis-form-wrapper">
+    基础列表
   </div>
 </template>
 
 <script>
 export default {
-name: "index"
+  name: "basis-list"
 }
 </script>
 

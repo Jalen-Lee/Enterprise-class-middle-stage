@@ -1,7 +1,7 @@
 <template>
   <div class="trigger-sidebar-wrapper">
     <navbar-button @click="handleClick">
-      <icon name="icon-outdent" size="18"></icon>
+      <icon :name="hasOpened?'icon-outdent':'icon-indent'" size="18"></icon>
     </navbar-button>
   </div>
 </template>
@@ -11,9 +11,14 @@
   export default {
     name: "TriggerSidebar",
     components:{NavbarButton},
+    computed:{
+      hasOpened(){
+        return this.$store.state.app.sideBar.open
+      }
+    },
     methods:{
       handleClick(){
-        console.log("点击展开或关闭侧边栏")
+        this.$store.commit('toggleSideBar')
       }
     }
   }
