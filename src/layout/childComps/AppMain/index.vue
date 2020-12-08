@@ -1,19 +1,21 @@
 <template>
-  <section class="app-main-wrapper">
-    <transition name="fade-transform" mode="out-in">
-      <keep-alive :exclude="['redirect']">
-        <router-view  />
-      </keep-alive>
-    </transition>
-  </section>
+    <section class="app-main-wrapper">
+<!--      <el-scrollbar class="main-container" style="height: 100%">-->
+        <transition name="fade-transform" mode="out-in">
+          <keep-alive :exclude="['redirect']">
+            <router-view  :key="key"/>
+          </keep-alive>
+        </transition>
+<!--      </el-scrollbar>-->
+    </section>
 </template>
 
 <script>
   export default {
     name: "AppMain",
     computed:{
-      key(){
-
+      key() {
+        return this.$route.path
       }
     }
   }
@@ -23,7 +25,9 @@
   .app-main-wrapper{
     display: flex;
     flex: 1 0 0;
+    //height: calc(100vh - 108px);
     padding: 20px;
-    //background-color: antiquewhite;
+    //overflow-x: hidden;
+    //position: relative;
   }
 </style>

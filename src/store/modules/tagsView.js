@@ -1,5 +1,4 @@
 import router from "@/router";
-
 const state = {
     visitedViews:[],
     canCloseLeft:false,
@@ -9,8 +8,20 @@ const state = {
 }
 
 const mutations = {
+    init:(state)=>{
+        state.visitedViews = JSON.parse(localStorage.getItem('app')).historyPages
+    },
     addVisitedView: (state,route)=>{
-        state.visitedViews.push(route)
+        const view = {
+            fullPath: route.fullPath,
+            hash: route.hash,
+            meta: route.meta,
+            name: route.name,
+            params: route.params,
+            path: route.path,
+            query: route.query
+        }
+        state.visitedViews.push(view)
     },
     delVisitedView: (state,route)=>{
         const index = state.visitedViews.findIndex(item=>{
@@ -31,12 +42,11 @@ const mutations = {
         state.visitedViews.splice(index+1)
     },
     closeOtherViews: (state,route)=>{
+        const current = state.visitedViews.find(item=>{
+            return item.path === route.path
+        })
         state.visitedViews.splice(0)
-        state.visitedViews.push(route)
-    },
-    closeAllViews: (state,route)=>{
-        state.visitedViews.splice(0)
-        router.push('/dashboard')
+        state.visitedViews.push(current)
     },
 }
 
@@ -47,6 +57,7 @@ const actions = {
 
 
 export default {
+    namespaced: true,
     state,
     mutations,
     actions

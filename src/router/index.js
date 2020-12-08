@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import Layout from '@/layout'
+import {getToken} from "@/utils/authority"
 import {Notification} from "element-ui";
 
-const hasToken = "token"
+// const hasToken = "token"
 
 //路由白名单
 const routeWhiteList = ['/login','/dashboard']
@@ -113,6 +114,7 @@ export const constantRoutes = [
       {
         path: '/list/search',
         meta: {title: '搜索列表',icon: 'icon-filesearch'},
+        component: ()=> import('@/components/NestedLayout'),
         redirect: '/list/search/projects',
         children:[
           {
@@ -158,6 +160,25 @@ export const constantRoutes = [
     ]
   },
   {
+    path:'/account',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/account/center',
+        name: 'AccountCenter',
+        component: ()=> import('@/views/account/center'),
+        meta: {title: '个人中心'}
+      },
+      {
+        path: '/account/setting',
+        name: 'AccountSetting',
+        component: ()=> import('@/views/account/settings'),
+        meta: {title: '个人设置'}
+      },
+    ]
+  },
+  {
     path:'/login',
     name: 'Login',
     component: ()=> import('@/views/login'),
@@ -191,6 +212,8 @@ const router = new VueRouter({
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
 
+  const hasToken = getToken()
+
   if(hasToken){
     console.log("有token")
     if (to.path === '/login') {
@@ -211,7 +234,7 @@ router.beforeEach(async (to, from, next) => {
 })
 
 router.afterEach(async (to, from) => {
-  document.title = to.meta.title
+  document.title = to.meta.title || 'LiJiaLong NB'
   NProgress.done()
 })
 

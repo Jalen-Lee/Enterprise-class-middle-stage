@@ -32,6 +32,8 @@
 </template>
 
 <script>
+  import {getToken} from "@/utils/authority";
+
   export default {
     name: "login",
     data(){
@@ -43,8 +45,18 @@
       }
     },
     methods:{
-      handleLogin(){
-        this.$router.push({ path: '/', query: this.otherQuery })
+      async handleLogin(){
+        const res = await this.$request({
+          url:'/api/auth/checkToken',
+          method:'post',
+          data:{
+            token: getToken()
+          }
+        })
+        if(res.code === 0){
+          console.log("token有效")
+        }
+        // this.$router.push({ path: '/', query: this.otherQuery })
       },
       getOtherQuery(query) {
         return Object.keys(query).reduce((acc, cur) => {

@@ -48,10 +48,7 @@
     methods:{
       //初始化
       init(age){
-        console.log("这是父组件的init函数")
-        console.log("输出子组件的调用时的参数",age)
-        console.log("输出父组件作用域的data")
-        console.log("这是父组件的data",this.visitedViews)
+
       },
       //添加标签
       handleAddTag(){
@@ -65,10 +62,7 @@
           return item.path === this.$route.path
         })
         if(!isExist)
-          this.$store.commit('addVisitedView',this.$route)
-          // this.tags.push(this.$route)
-        // this.tags.push(this.$route)
-        // console.log(this.tags)
+          this.$store.commit('tagsView/addVisitedView',this.$route)
       },
       //标签栏左移
       handlePrevious(){
@@ -107,11 +101,14 @@
         deep: true,
         immediate:true
       },
-      person:{
-        handler:function (newVal,oldVal){
-          console.log("person改变啦，新的是",newVal)
+      '$store.state.tagsView.visitedViews':{
+        handler:function (){
+          const storage = {
+            historyPages: this.$store.state.tagsView.visitedViews
+          }
+          //本地存储持久化
+          window.localStorage.setItem("app",JSON.stringify(storage))
         },
-        deep:true
       }
     },
     mounted() {

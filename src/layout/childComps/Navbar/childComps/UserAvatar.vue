@@ -26,7 +26,17 @@
     },
     methods:{
       handleCommand(command){
-        this.$message(command)
+        switch (command){
+          case 'profile':
+            this.$router.push('/account/center')
+            break
+          case 'setting':
+            this.$router.push('/account/setting')
+            break
+          case 'logout':
+
+            break
+        }
       }
     }
   }

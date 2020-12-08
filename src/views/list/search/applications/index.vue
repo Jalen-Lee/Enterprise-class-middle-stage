@@ -1,5 +1,5 @@
 <template>
-  <div class="applications-search-wrapper">
+  <div class="applications-search-wrapper global-var">
     应用查询列表
   </div>
 </template>

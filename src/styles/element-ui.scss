@@ -1,0 +1,24 @@
+//覆盖一些element-ui的样式
+
+
+.el-menu-item-group__title{
+  display: none;
+}
+
+.el-scrollbar{
+  height: 100%;
+}
+
+.el-scrollbar__wrap{
+  overflow-x: hidden !important;
+}
+
+.el-scrollbar__bar{
+  z-index: 1000 !important;
+  &.is-vertical{
+    right:0;
+  }
+  .el-scrollbar__thumb{
+    background-color: #abc0c3!important;
+  }
+}

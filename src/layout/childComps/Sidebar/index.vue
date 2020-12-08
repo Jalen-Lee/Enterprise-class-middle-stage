@@ -14,45 +14,6 @@
         @close="handleClose"
         :unique-opened="sideBarConfig.uniqueOpened"
     >
-<!--      <el-submenu index="/dashBoard">-->
-<!--        <template slot="title">-->
-<!--          <i class="el-icon-location"></i>-->
-<!--          <span slot="title">仪表盘</span>-->
-<!--        </template>-->
-<!--        <el-menu-item-group>-->
-<!--          <el-menu-item index="/dashBoard/analysis" :route="{path:'/dashBoard/analysis'}">分析</el-menu-item>-->
-<!--          <el-menu-item index="/dashBoard/monitor" :route="{path:'/dashBoard/monitor'}">监控</el-menu-item>-->
-<!--          <el-menu-item index="/dashBoard/workplace" :route="{path:'/dashBoard/workplace'}">工作台</el-menu-item>-->
-<!--        </el-menu-item-group>-->
-<!--      </el-submenu>-->
-<!--      <el-submenu index="/form">-->
-<!--        <template slot="title">-->
-<!--          <i class="el-icon-location"></i>-->
-<!--          <span slot="title">表单</span>-->
-<!--        </template>-->
-<!--        <el-menu-item-group>-->
-<!--          <el-menu-item index="/form/basis-form" :route="{path:'/form/basis-form'}">-->
-<!--            <template slot="title">-->
-<!--              <i class="el-icon-location"></i>-->
-<!--              <span slot="title">表单</span>-->
-<!--            </template>-->
-<!--          </el-menu-item>-->
-<!--          <el-menu-item index="/form/advanced-form" :route="{path:'/form/advanced-form'}">高级表单</el-menu-item>-->
-<!--          <el-menu-item index="/form/step-form" :route="{path:'/form/step-form'}">分布表单</el-menu-item>-->
-<!--        </el-menu-item-group>-->
-<!--      </el-submenu>-->
-<!--      <el-menu-item index="/401">-->
-<!--        <i class="el-icon-menu"></i>-->
-<!--        <span slot="title">导航二</span>-->
-<!--      </el-menu-item>-->
-<!--      <el-menu-item index="/401" disabled>-->
-<!--        <i class="el-icon-document"></i>-->
-<!--        <span slot="title">导航三</span>-->
-<!--      </el-menu-item>-->
-<!--      <el-menu-item index="/login">-->
-<!--        <i class="el-icon-setting"></i>-->
-<!--        <span slot="title">导航四</span>-->
-<!--      </el-menu-item>-->
       <template v-for="item1 in routes">
         <el-submenu :index="item1.path" v-if="hasOwnChildren(item1)">
           <template slot="title">
@@ -157,10 +118,5 @@
         margin-right: 8px;
       }
     }
-  }
-</style>
-<style lang="scss">
-  .el-menu-item-group__title{
-    display: none;
   }
 </style>

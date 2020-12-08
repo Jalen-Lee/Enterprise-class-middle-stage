@@ -9,15 +9,18 @@ module.exports = {
     assetsDir: 'static',
     lintOnSave: process.env.NODE_ENV === 'development',
     productionSourceMap: false,
-    // devServer: {
-    //     port: port,
-    //     open: true,
-    //     overlay: {
-    //         warnings: false,
-    //         errors: true
-    //     },
-    //     before: require('./mock/mock-server.js')
-    // },
+    devServer: {
+        port: 9527,
+        // openPage: '/page',
+        // open: true,
+        // overlay: {
+        //     warnings: false,
+        //     errors: true
+        // },
+        // compress:true,
+        disableHostCheck:true,
+        before: require('./mock/mock-server.js')
+    },
     configureWebpack: {
         // provide the app's title in webpack's name field, so that
         // it can be accessed in index.html to inject the correct title.
@@ -26,6 +29,24 @@ module.exports = {
             alias: {
                 '@': resolve(__dirname,'src')
             }
-        }
+        },
+        devtool: 'source-map',
+        // devServer: {
+        //
+        //     // 调试时允许内网穿透，让外网的人访问到本地调试的H5页面
+        //     disableHostCheck: true
+        // }
+    },
+    css: {
+        loaderOptions: {
+            sass: {
+                prependData: `
+                    @import '@/styles/variable.scss';
+                    @import '@/styles/mixins.scss';
+                    @import '@/styles/index.scss';
+                    @import '@/styles/transitions.scss';
+                `,
+            },
+        },
     },
 }

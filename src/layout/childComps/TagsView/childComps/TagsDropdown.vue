@@ -57,17 +57,14 @@
       handleCommand(command){
         switch (command){
           case 'close-left':
-            this.$store.commit('closeLeftViews',this.$route)
+            this.$store.commit('tagsView/closeLeftViews',this.$route)
             break
           case 'close-right':
-            this.$store.commit('closeRightViews',this.$route)
+            this.$store.commit('tagsView/closeRightViews',this.$route)
             break
           case 'close-other':
-            this.$store.commit('closeOtherViews',this.$route)
+            this.$store.commit('tagsView/closeOtherViews',this.$route)
             break
-          // case 'close-all':
-          //   this.$store.commit('closeAllViews',this.$route)
-          //   break
         }
       }
     }

@@ -18,7 +18,7 @@
     },
     methods:{
       handleClick(){
-        this.$store.commit('toggleSideBar')
+        this.$store.commit('app/toggleSideBar')
       }
     }
   }

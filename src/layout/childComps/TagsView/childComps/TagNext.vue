@@ -16,12 +16,12 @@
 </script>
 
 <style scoped lang="scss">
-.tag-previous-wrap{
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
-  border-radius: 2px;
-  cursor: pointer;
-}
+  .tag-previous-wrap{
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+  }
 </style>

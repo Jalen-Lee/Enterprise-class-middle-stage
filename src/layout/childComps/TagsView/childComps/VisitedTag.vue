@@ -28,7 +28,7 @@
       },
       //关闭标签
       handleClose(){
-        this.$store.commit('delVisitedView',this.route)
+        this.$store.commit('tagsView/delVisitedView',this.route)
         console.log("关闭标签",this.route.meta.title)
       }
     },
