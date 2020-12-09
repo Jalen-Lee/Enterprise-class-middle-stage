@@ -4,7 +4,7 @@
     <main class="login-main-wrap">
       <div class="login-main-body">
         <el-input
-            v-model="account"
+            v-model="username"
             placeholder="请输入登录账号"
             prefix-icon="iconfont icon-user"
             clearable
@@ -17,7 +17,7 @@
             show-password
             ref="password"
         ></el-input>
-        <el-button type="primary" style="width: 100%" @click="handleLogin">登录</el-button>
+        <el-button type="primary" style="width: 100%;height: 35px" @click="handleLogin">登录</el-button>
         <el-divider><span>第三方登录</span></el-divider>
       </div>
     </main>
@@ -32,13 +32,14 @@
 </template>
 
 <script>
-  import {getToken} from "@/utils/authority";
+  import {httpLogin} from "@/api/auth"
+  import {setToken} from "@/utils/authority";
 
   export default {
     name: "login",
     data(){
       return {
-        account:'',
+        username:'',
         password:'',
         redirect:'',
         otherQuery:''
@@ -46,17 +47,20 @@
     },
     methods:{
       async handleLogin(){
-        const res = await this.$request({
-          url:'/api/auth/checkToken',
-          method:'post',
-          data:{
-            token: getToken()
+        httpLogin({
+          username:this.username,
+          password: this.password
+        }).then(res=>{
+          if(res.code === 0){
+            setToken(res.token)
+            this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+          }else{
+            this.$message({
+              message: res.msg,
+              type:"error"
+            })
           }
         })
-        if(res.code === 0){
-          console.log("token有效")
-        }
-        // this.$router.push({ path: '/', query: this.otherQuery })
       },
       getOtherQuery(query) {
         return Object.keys(query).reduce((acc, cur) => {
@@ -116,7 +120,7 @@
       align-items: center;
       .login-main-body{
         width: 384px;
-        margin-bottom: 150px;
+
         /deep/.el-input{
           margin-bottom: 24px;
         }

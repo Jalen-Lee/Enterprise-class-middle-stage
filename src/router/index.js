@@ -4,9 +4,22 @@ import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import Layout from '@/layout'
 import {getToken} from "@/utils/authority"
+import {httpCheckToken} from "@/api/auth";
 import {Notification} from "element-ui";
 
-// const hasToken = "token"
+//重写push、place方法，用来处理vue-router在相同路由跳转时报错
+const originalPush = VueRouter.prototype.push
+const originalReplace = VueRouter.prototype.replace
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
+
+VueRouter.prototype.replace = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalReplace.call(this, location, onResolve, onReject)
+  return originalReplace.call(this, location).catch(err => err)
+}
+
 
 //路由白名单
 const routeWhiteList = ['/login','/dashboard']
@@ -211,17 +224,17 @@ const router = new VueRouter({
 
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
-
   const hasToken = getToken()
 
   if(hasToken){
-    console.log("有token")
+    console.log(to.path)
     if (to.path === '/login') {
-      // if is logged in, redirect to the home page
+      // 如果已登录，则跳转至主页
       next({ path: '/' })
       NProgress.done() // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
     } else {
       next()
+      NProgress.done()
     }
   }else{
     if(routeWhiteList.indexOf(to.path) !== -1){
@@ -230,11 +243,10 @@ router.beforeEach(async (to, from, next) => {
       next(`/login?redirect=${to.path}`)
     }
   }
-
 })
 
 router.afterEach(async (to, from) => {
-  document.title = to.meta.title || 'LiJiaLong NB'
+  document.title = to.meta.title || 'LiJiaLong'
   NProgress.done()
 })
 

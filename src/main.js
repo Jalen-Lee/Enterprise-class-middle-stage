@@ -21,6 +21,7 @@ Vue.use(ElementUI )
 Vue.config.productionTip = false
 Vue.prototype.$request = service
 Vue.prototype.$rule = rule
+
 Vue.prototype.$clipboard = clipboard
 // 注册全局过滤器
 Object.keys(filters).forEach(key => {

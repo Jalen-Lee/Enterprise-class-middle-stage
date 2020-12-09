@@ -1,8 +1,5 @@
-
-const {resolve} = require('path')
-
+const {resolve,join} = require('path')
 const port = process.env.port || process.env.npm_config_port || 9527 //开发环境下的本地服务器端口
-
 module.exports = {
     publicPath: '/',
     outputDir: 'dist',

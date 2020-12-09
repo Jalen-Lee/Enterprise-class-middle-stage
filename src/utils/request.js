@@ -1,16 +1,14 @@
 import axios from 'axios'
 import {Notification } from "element-ui";
-import store from "@/store"
+import {getToken} from "@/utils/authority";
 
 const service = axios.create({
-    baseURL: process.env.VUE_APP_BASE_URL,
+    baseURL: process.env.VUE_APP_BASE_URL || 'http://localhost:9527/',
     timeout: 5000
 })
-
 // 异常拦截处理器
 const errorHandler = (error) => {
     const status = error.response.status;
-    console.log(status)
     switch (status) {
         /* eslint-disable no-param-reassign */
         case 400: error.message = '请求错误'; break;
@@ -41,7 +39,8 @@ service.interceptors.request.use(config=>{
         // 如果 token 存在
         // 让每个请求携带自定义 token 请根据实际情况自行修改
         // eslint-disable-next-line no-param-reassign
-        config.headers.Authorization = `Bearer ${store.state.token}`;
+        if(config.baseURL === 'http://localhost:9527/')
+            config.headers.Authorization = `Bearer ${getToken()}`;
         return config
     },errorHandler)
 
@@ -49,7 +48,7 @@ service.interceptors.request.use(config=>{
 service.interceptors.response.use(response =>{
     const dataAxios = response.data
     const {code} = dataAxios
-    let res = ''
+    let res = null
     // 如果没有 code 代表这不是项目后端开发的接口
     if(code === undefined){
         res = dataAxios
@@ -67,7 +66,7 @@ service.interceptors.response.use(response =>{
                 res = dataAxios
                 break
             default:
-                res = "不是正确的code值"
+                res = dataAxios
                 break
         }
     }
