@@ -215,13 +215,24 @@ export const constantRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
-
-const router = new VueRouter({
+//创建路由
+const createRouter = () => new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
+//重置路由
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
 
+
+
+const router = createRouter()
+
+//全局前置守卫
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
   const hasToken = getToken()
@@ -245,9 +256,11 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 
+//全局后置守卫
 router.afterEach(async (to, from) => {
   document.title = to.meta.title || 'LiJiaLong'
   NProgress.done()
 })
+
 
 export default router

@@ -3,21 +3,31 @@ import Vuex from 'vuex'
 import getters from "./getters";
 import appModule from './modules/app'
 import tagsViewModule from "./modules/tagsView";
+import {httpLogin,httpLogout} from "@/api/auth";
+import {setToken,removeToken} from "@/utils/authority";
+import router, { resetRouter } from '@/router'
 Vue.use(Vuex)
 
 /**
  * 根级别状态
- * **/
+ **/
 const state = {
-  token: "fake token"
+  token: "fake token",
+  userInfo: {
+    username:"",
+    avatar:"",
+    roles:[]
+  },
 }
 
 const mutations = {
-
+  //设置state中的token
+  SET_TOKEN: (state, token) => {
+    state.token = token
+  },
 }
 /**
  * 在sysInit内完成应用启动所需所有数据的预拉取，完成后关闭加载动画
- *
  **/
 const actions = {
   //状态管理初始化
@@ -28,6 +38,40 @@ const actions = {
     setTimeout(()=>{
       document.body.removeChild(document.getElementById('loading-wrapper'))
     },3000)
+  },
+  login: ({commit},userForm)=>{
+    return new Promise((resolve, reject) => {
+      httpLogin(userForm)
+          .then(res=>{
+            if(res.code === 0){
+              setToken(res.token)
+              commit("SET_TOKEN",res.token)
+              resolve()
+            }else{
+              reject()
+            }
+          })
+          .catch(err=>{
+            reject(err)
+          })
+    })
+  },
+  logout: ({commit})=>{
+    return new Promise((resolve, reject) => {
+      httpLogout()
+          .then((res)=>{
+            if(res.code === 0){
+              removeToken()
+              commit('SET_TOKEN','')
+              resolve()
+            }else{
+              reject()
+            }
+          })
+          .catch((err)=>{
+            reject(err)
+          })
+    })
   }
 }
 

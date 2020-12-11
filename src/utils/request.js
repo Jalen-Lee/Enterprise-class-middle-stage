@@ -2,7 +2,7 @@ import axios from 'axios'
 import {Notification } from "element-ui";
 import {getToken} from "@/utils/authority";
 
-const service = axios.create({
+const request = axios.create({
     baseURL: process.env.VUE_APP_BASE_URL || 'http://localhost:9527/',
     timeout: 5000
 })
@@ -35,7 +35,7 @@ const errorHandler = (error) => {
 
 
 //请求拦截器
-service.interceptors.request.use(config=>{
+request.interceptors.request.use(config=>{
         // 如果 token 存在
         // 让每个请求携带自定义 token 请根据实际情况自行修改
         // eslint-disable-next-line no-param-reassign
@@ -45,10 +45,10 @@ service.interceptors.request.use(config=>{
     },errorHandler)
 
 //响应拦截器
-service.interceptors.response.use(response =>{
+request.interceptors.response.use(response =>{
     const dataAxios = response.data
     const {code} = dataAxios
-    let res = null
+    let res
     // 如果没有 code 代表这不是项目后端开发的接口
     if(code === undefined){
         res = dataAxios
@@ -67,6 +67,11 @@ service.interceptors.response.use(response =>{
                 break
             default:
                 res = dataAxios
+                Notification({
+                    title: '错误',
+                    type: 'error',
+                    message: res.msg
+                })
                 break
         }
     }
@@ -74,4 +79,4 @@ service.interceptors.response.use(response =>{
 },errorHandler)
 
 
-export default service
+export default request

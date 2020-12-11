@@ -7,9 +7,10 @@ import '@/icon/iconfont.css'
 //import '@/styles/index.scss'
 import ElementUI  from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
-import service from "@/utils/request";
+import request from "@/utils/request";
 import rule from "@/utils/rules";
 import filters from "@/filters";
+import directives from "@/directives"
 import clipboard from "@/utils/clipboard";
 import globalComps from "@/components";
 
@@ -19,7 +20,7 @@ Vue.use(ElementUI )
 
 
 Vue.config.productionTip = false
-Vue.prototype.$request = service
+Vue.prototype.$request = request
 Vue.prototype.$rule = rule
 
 Vue.prototype.$clipboard = clipboard
@@ -30,6 +31,11 @@ Object.keys(filters).forEach(key => {
 //注册全局组件
 Object.keys(globalComps).forEach(key =>{
   Vue.component(key,globalComps[key])
+})
+//注册全局自定义指令
+Object.values(directives).forEach(value=>{
+  console.log("value",value)
+  Vue.use(value.install)
 })
 
 new Vue({

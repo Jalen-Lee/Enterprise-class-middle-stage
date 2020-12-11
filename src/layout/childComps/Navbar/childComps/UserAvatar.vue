@@ -15,9 +15,6 @@
 
 <script>
   import NavbarButton from "@/layout/childComps/Navbar/childComps/NavbarButton";
-  import {removeToken} from "@/utils/authority";
-  import {httpLogout} from "@/api/auth";
-
   export default {
     name: "UserAvatar",
     components:{NavbarButton},
@@ -42,15 +39,14 @@
               cancelButtonText: '取消',
               type: 'warning'
             }).then(()=>{
-              return httpLogout()
-            }).then(res => {
-              //移除token
-              removeToken()
+              return this.$store.dispatch('logout')
+            }).then(() => {
               this.$router.push('/login')
-              this.$message({
-                type: 'success',
-                message: '退出成功！'
-              });
+              this.$notify({
+                title:"提示",
+                type:"success",
+                message:"退出成功"
+              })
             }).catch(() => {});
             break
         }
