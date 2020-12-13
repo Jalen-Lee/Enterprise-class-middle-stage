@@ -127,7 +127,7 @@
     methods:{
       handleLogin(){
         this.$refs.loginForm.validate((valid) => {
-          if (valid) {
+          if (true) {
             this.loading = true
             this.disable = true
             this.loginTip = '正在登录'
