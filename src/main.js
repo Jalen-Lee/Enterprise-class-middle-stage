@@ -24,6 +24,7 @@ Vue.prototype.$request = request
 Vue.prototype.$rule = rule
 
 Vue.prototype.$clipboard = clipboard
+
 // 注册全局过滤器
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
@@ -34,7 +35,6 @@ Object.keys(globalComps).forEach(key =>{
 })
 //注册全局自定义指令
 Object.values(directives).forEach(value=>{
-  console.log("value",value)
   Vue.use(value.install)
 })
 
@@ -44,5 +44,3 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-// const a = createEmptyVNode("这是个vnode")
-// console.log("vnode",a)

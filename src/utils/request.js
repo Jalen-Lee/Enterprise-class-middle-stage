@@ -3,7 +3,7 @@ import {Notification } from "element-ui";
 import {getToken} from "@/utils/authority";
 
 const request = axios.create({
-    baseURL: process.env.VUE_APP_BASE_URL || 'http://localhost:9527/',
+    baseURL: process.env.VUE_APP_BASE_URL || 'http://localhost:3000/',
     timeout: 5000
 })
 // 异常拦截处理器
@@ -39,7 +39,7 @@ request.interceptors.request.use(config=>{
         // 如果 token 存在
         // 让每个请求携带自定义 token 请根据实际情况自行修改
         // eslint-disable-next-line no-param-reassign
-        if(config.baseURL === 'http://localhost:9527/')
+        if(config.baseURL === 'http://localhost:3000/')
             config.headers.Authorization = `Bearer ${getToken()}`;
         return config
     },errorHandler)

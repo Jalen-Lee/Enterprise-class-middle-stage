@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from "./getters";
 import appModule from './modules/app'
-import tagsViewModule from "./modules/tagsView";
+import tagsViewModule from "./modules/tags-view";
+import accountCenterModule from "./modules/account-center"
 import {httpLogin,httpLogout} from "@/api/auth";
 import {setToken,removeToken} from "@/utils/authority";
 import router, { resetRouter } from '@/router'
@@ -14,10 +15,11 @@ Vue.use(Vuex)
 const state = {
   token: "fake token",
   userInfo: {
-    username:"",
-    avatar:"",
+    username:"David",
+    avatar:"https://pic4.zhimg.com/v2-3d2e688690fedb3f276cabd1c4c3f575_xs.jpg",
     roles:[]
   },
+
 }
 
 const mutations = {
@@ -81,7 +83,8 @@ const actions = {
 const store = new Vuex.Store({
   modules: {
     app: appModule,
-    tagsView: tagsViewModule
+    tagsView: tagsViewModule,
+    accountCenter: accountCenterModule
   },
   state,
   mutations,

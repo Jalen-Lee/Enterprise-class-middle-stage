@@ -2,7 +2,7 @@
   <el-dropdown @command="handleCommand">
     <navbar-button>
       <div>
-        <avatar :label="username"  :src="avatar"></avatar>
+        <avatar :label="userInfo.username"  :src="userInfo.avatar"></avatar>
       </div>
     </navbar-button>
     <el-dropdown-menu slot="dropdown">
@@ -14,15 +14,20 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import NavbarButton from "@/layout/childComps/Navbar/childComps/NavbarButton";
   export default {
     name: "UserAvatar",
     components:{NavbarButton},
     data(){
       return {
-        avatar:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-        username:'David',
+
       }
+    },
+    computed: {
+      ...mapState([
+          'userInfo'
+      ])
     },
     methods:{
       handleCommand(command){
