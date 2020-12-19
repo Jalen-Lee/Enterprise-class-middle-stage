@@ -15,10 +15,10 @@
   export default {
     name: "account-center",
     components:{Tabs,ProfileCard},
-    activated() {
-      console.log("活跃了")
+    created() {
+      console.log("被创建了")
       this.$store.dispatch('accountCenter/getProjects')
-    }
+    },
   }
 </script>
 

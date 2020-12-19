@@ -34,7 +34,7 @@
 <script>
   import SelectBox from "@/components/SelectBox/index";
   export default {
-    name: "index",
+    name: "dashboard-analysis",
     components: {SelectBox},
     data(){
       return{

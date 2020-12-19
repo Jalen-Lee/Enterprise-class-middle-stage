@@ -13,11 +13,15 @@
     components:{NavbarButton},
     methods:{
       handleClick(){
-        console.log("刷新",this.$route)
-        this.$nextTick(()=>{
-          this.$router.replace({
-            path: '/redirect' + this.$route.path
+        console.log("刷新",this.$route.name)
+        this.$store.dispatch('tagsView/removeCached',this.$route).then(()=>{
+          this.$nextTick(()=>{
+            this.$router.replace({
+              path: '/redirect' + this.$route.path
+            })
           })
+        }).catch((err)=>{
+          console.log(err)
         })
       }
     }

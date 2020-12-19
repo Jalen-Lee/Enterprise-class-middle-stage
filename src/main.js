@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import 'normalize.css/normalize.css'
 import '@/icon/iconfont.css'
+import CodeEditor from "@/components/CodeEditor";
 //import '@/styles/index.scss'
 import ElementUI  from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -14,10 +15,8 @@ import directives from "@/directives"
 import clipboard from "@/utils/clipboard";
 import globalComps from "@/components";
 
-
-//import VNode from 'vue/src/core/vdom/vnode'
 Vue.use(ElementUI )
-
+Vue.use(CodeEditor)
 
 Vue.config.productionTip = false
 Vue.prototype.$request = request

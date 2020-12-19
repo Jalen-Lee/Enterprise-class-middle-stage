@@ -1,6 +1,7 @@
-<template>
+  <template>
   <div :class="['icon-wrap','icon-wrap--' + labelPos]">
     <i
+        v-if="!image"
         :class="[customPrefix,name]"
         :style="{
             color: color,
@@ -8,6 +9,14 @@
             fontWeight: bold? 'bold':'normal'
           }"
     ></i>
+    <img
+        v-else
+        :src="name"
+        :style="{
+          width: sizeFormat(size),
+          height: sizeFormat(size)
+        }"
+    >
     <span
         v-if="label !== ''"
         :style="{
@@ -85,6 +94,10 @@ export default {
       type: [String, Number],
       default: '6px'
     },
+    image:{
+      type: Boolean,
+      default: false,
+    }
   },
   methods:{
     sizeFormat(value){

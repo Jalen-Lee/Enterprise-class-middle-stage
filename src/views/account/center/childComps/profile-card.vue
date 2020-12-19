@@ -9,7 +9,7 @@
     <div class="profile-card-wrap-row">
       <el-row>
         <el-col :span="24">
-          <icon name="el-icon-s-cooperation" label="前端技术专家"></icon>
+          <icon name="el-icon-s-cooperation" label="前端技术专家" :image="true"></icon>
         </el-col>
         <el-col :span="24">
           <icon name="el-icon-user-solid" label="中台-数据平台团队-前端创新团队-前端架构"></icon>
@@ -23,16 +23,20 @@
     <div class="profile-card-wrap-row">
       <el-row>
         <el-col :span="24">
-          <span>Vue</span>
+          <icon :name="img_vue"  :image="true" size="22px"></icon>
           <el-progress :percentage="90" :format="format"></el-progress>
         </el-col>
         <el-col :span="24">
-          <span>React</span>
+          <icon :name="img_react"  :image="true" size="22px"></icon>
           <el-progress :percentage="50" :format="format"></el-progress>
         </el-col>
         <el-col :span="24">
-          <span>Angular</span>
-          <el-progress :percentage="50" :format="format"></el-progress>
+          <icon :name="img_angular"  :image="true" size="22px"></icon>
+          <el-progress :percentage="35" :format="format"></el-progress>
+        </el-col>
+        <el-col :span="24">
+          <icon :name="img_nodejs"  :image="true" size="22px"></icon>
+          <el-progress :percentage="66" :format="format"></el-progress>
         </el-col>
       </el-row>
     </div>
@@ -59,7 +63,10 @@
     name: "profile-card",
     data(){
       return {
-
+        img_vue:'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fupg0rkcwtyda9cfc2/d8779070-405e-11eb-bd01-97bc1429a9ff.png',
+        img_react: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fupg0rkcwtyda9cfc2/67e3cf90-41f8-11eb-bc56-c9cea619f663.png',
+        img_angular: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fupg0rkcwtyda9cfc2/689ac380-41f8-11eb-bd01-97bc1429a9ff.png',
+        img_nodejs: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fupg0rkcwtyda9cfc2/67334440-41f8-11eb-b680-7980c8a877b8.png'
       }
     },
     computed:{

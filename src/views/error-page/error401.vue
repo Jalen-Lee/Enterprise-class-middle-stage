@@ -6,7 +6,7 @@
 
 <script>
 export default {
-name: "401"
+name: "error401"
 }
 </script>
 

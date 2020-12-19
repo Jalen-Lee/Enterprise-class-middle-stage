@@ -1,12 +1,12 @@
 <template>
   <el-tabs v-model="activeName" @tab-click="handleClick">
-    <el-tab-pane label="文章" name="first">
+    <el-tab-pane label="文章" name="articles">
       <tab-pane-article/>
     </el-tab-pane>
-    <el-tab-pane label="应用" name="second">
+    <el-tab-pane label="应用" name="apps">
       <tab-pane-application/>
     </el-tab-pane>
-    <el-tab-pane label="项目" name="third">
+    <el-tab-pane label="项目" name="projects">
       <tab-pane-project/>
     </el-tab-pane>
   </el-tabs>
@@ -21,7 +21,7 @@
     components:{TabPaneApplication,TabPaneArticle,TabPaneProject},
     data() {
       return {
-        activeName: 'second'
+        activeName: 'projects'
       };
     },
     methods: {

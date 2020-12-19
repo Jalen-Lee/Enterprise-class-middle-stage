@@ -1,15 +1,18 @@
 <template>
   <div class="result-success-wrapper">
-    成功页
+
   </div>
 </template>
 
 <script>
   export default {
-    name: "result-success"
+    name: "result-success",
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .result-success-wrapper{
+    width: 100%;
+    height: 100%;
+  }
 </style>

@@ -31,6 +31,7 @@ Vue.use(VueRouter)
 export const constantRoutes = [
   {
     path: '/redirect',
+    name: 'redirect',
     component: Layout,
     meta: {title: "跳转"},
     hidden: true,
@@ -57,19 +58,19 @@ export const constantRoutes = [
       {
         path:'/dashboard/analysis',
         component: () => import('@/views/dashboard/analysis'),
-        name: 'DashboardAnalysis',
+        name: 'dashboard-analysis',
         meta: {title:"分析",icon:'icon-barchart'}
       },
       {
         path:'/dashboard/monitor',
         component: () => import('@/views/dashboard/monitor'),
-        name: 'DashboardMonitor',
+        name: 'dashboard-monitor',
         meta: {title:"监控",icon:'icon-monitor'}
       },
       {
         path:'/dashboard/workplace',
         component: () => import('@/views/dashboard/workplace'),
-        name: 'DashboardWorkplace',
+        name: 'dashboard-workplace',
         meta: {title:"工作台",icon:'icon-Report'}
       },
     ]
@@ -82,19 +83,19 @@ export const constantRoutes = [
     children: [
       {
         path: '/form/advanced-form',
-        name: 'AdvancedForm',
+        name: 'advanced-form',
         component: ()=> import('@/views/form/advanced-form'),
         meta: {title: '高级表单',icon: 'icon-pic-right'}
       },
       {
         path: '/form/basis-form',
-        name: 'BasisForm',
+        name: 'basis-form',
         component: ()=> import('@/views/form/basic-form'),
         meta: {title: '基础表单',icon: 'icon-table1'}
       },
       {
         path: '/form/step-form',
-        name: 'StepForm',
+        name: 'step-form',
         component: ()=> import('@/views/form/step-form'),
         meta: {title: '分步表单',icon: 'icon-pic-center'}
       }
@@ -108,19 +109,19 @@ export const constantRoutes = [
     children: [
       {
         path: '/list/basis-list',
-        name: 'BasisList',
+        name: 'basis-list',
         component: ()=> import('@/views/list/basis-list'),
         meta: {title: '基础列表',icon: 'icon-orderedlist'}
       },
       {
         path: '/list/card-list',
-        name: 'CardForm',
+        name: 'card-list',
         component: ()=> import('@/views/list/card-list'),
         meta: {title: '卡片列表', icon: 'icon-block'}
       },
       {
         path: '/list/query-list',
-        name: 'QueryList',
+        name: 'query-list',
         component: ()=> import('@/views/list/query-list'),
         meta: {title: '查询列表',icon: 'icon-idcard'}
       },
@@ -132,19 +133,19 @@ export const constantRoutes = [
         children:[
           {
             path: '/list/search/applications',
-            name: 'ApplicationsSearch',
+            name: 'applications-search',
             component: ()=> import('@/views/list/search/applications'),
             meta: {title: '应用搜索',icon: 'icon-book'}
           },
           {
             path: '/list/search/articles',
-            name: 'ArticlesSearch',
+            name: 'articles-search',
             component: ()=> import('@/views/list/search/articles'),
             meta: {title: '文章搜索',icon: 'icon-file-text'}
           },
           {
             path: '/list/search/projects',
-            name: 'ProjectsSearch',
+            name: 'projects-search',
             component: ()=> import('@/views/list/search/projects'),
             meta: {title: '项目搜索',icon: 'icon-database'}
           }
@@ -160,15 +161,29 @@ export const constantRoutes = [
     children: [
       {
         path: '/result/success',
-        name: 'SuccessResult',
+        name: 'result-success',
         component: ()=> import('@/views/result/success'),
         meta: {title: '成功页',icon: 'icon-smile'}
       },
       {
         path: '/result/fail',
-        name: 'FailResult',
+        name: 'result-error',
         component: ()=> import('@/views/result/fail'),
         meta: {title: '失败页',icon: 'icon-frown'}
+      },
+    ]
+  },
+  {
+    path:'/code-browser',
+    component: Layout,
+    meta: {title: "代码浏览",icon:'icon-daima'},
+    redirect: '/code-browser/self',
+    children: [
+      {
+        path: '/code-browser/self',
+        name:'code-browser',
+        component: ()=> import('@/views/code-browser'),
+        meta: {title: '本项目',icon: 'icon-daima'}
       },
     ]
   },
@@ -179,13 +194,13 @@ export const constantRoutes = [
     children: [
       {
         path: '/account/center',
-        name: 'AccountCenter',
+        name: 'account-center',
         component: ()=> import('@/views/account/center'),
         meta: {title: '个人中心'}
       },
       {
         path: '/account/setting',
-        name: 'AccountSetting',
+        name: 'account-settings',
         component: ()=> import('@/views/account/settings'),
         meta: {title: '个人设置'}
       },
@@ -193,26 +208,26 @@ export const constantRoutes = [
   },
   {
     path:'/login',
-    name: 'Login',
+    name: 'login',
     component: ()=> import('@/views/login'),
     meta:{title:"登录"},
     hidden: true
   },
   {
-    path:'/404',
+    path:'/error404',
     name:'error404',
     component: ()=> import('@/views/error-page/error404'),
     meta: {title: '404 not found'},
     hidden: true
   },
   {
-    path:'/401',
+    path:'/error401',
     name:'error401',
     component: ()=> import('@/views/error-page/error401'),
     meta: {title: '401 not allow'},
     hidden: true
   },
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/error404', hidden: true }
 ]
 
 //创建路由
@@ -238,7 +253,7 @@ router.beforeEach(async (to, from, next) => {
   const hasToken = getToken()
 
   if(hasToken){
-    console.log(to.path)
+    // console.log(to.path)
     if (to.path === '/login') {
       // 如果已登录，则跳转至主页
       next({ path: '/' })

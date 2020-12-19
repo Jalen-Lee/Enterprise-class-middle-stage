@@ -3,7 +3,7 @@
       :body-style="{ padding: '0px'}"
       shadow="hover"
   >
-    <img :src="item.cover" class="image">
+    <img  class="image" v-lazy="item.cover">
     <div style="padding: 14px;">
       <span class="title">{{item.title}}</span>
       <div class="summary">

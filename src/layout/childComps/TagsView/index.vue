@@ -8,7 +8,7 @@
             transform: `translateX(${translateX}px)`
           }">
         <transition-group name="breadcrumb">
-          <visited-tag v-for="item in visitedViews" :route="item" :key="item.path" :person.sync="person" />
+          <visited-tag v-for="item in visitedViews" :route="item" :key="item.path" />
         </transition-group>
       </div>
     </div>
@@ -26,18 +26,12 @@
   import TagNext from "./childComps/TagNext";
   import TagsDropdown from "./childComps/TagsDropdown";
   export default {
-    customOption: 'foo',
     name: "TagsView",
     components: {VisitedTag,TagsDropdown,TagPrevious,TagNext},
     data(){
       return {
         translateX:0,
-        tags:[],
         showTagBoard: false,
-        person:{
-          name:"david",
-          age:18
-        }
       }
     },
     computed:{
@@ -46,24 +40,6 @@
       }
     },
     methods:{
-      //初始化
-      init(age){
-
-      },
-      //添加标签
-      handleAddTag(){
-        //跳转路由不加入视图列表
-        if(this.$route.path.includes("redirect")){
-          // console.log("当前是跳转")
-          return
-        }
-        //找到则返回元素，找不到返回undefined
-        const isExist= this.visitedViews.find(item=>{
-          return item.path === this.$route.path
-        })
-        if(!isExist)
-          this.$store.commit('tagsView/addVisitedView',this.$route)
-      },
       //标签栏左移
       handlePrevious(){
           this.translateX = 0
@@ -92,10 +68,14 @@
     watch: {
       $route:{
         handler: function (val, oldVal) {
-          this.handleAddTag()
-          this.$nextTick(()=>{
-            this.showTagBoard = this.hasOver();
-            this.handleNext()
+          // console.log("路由变化了")
+          this.$store.dispatch('tagsView/appendViews',this.$route).then(()=>{
+            this.$nextTick(()=>{
+              this.showTagBoard = this.hasOver();
+              this.handleNext()
+            })
+          }).catch((err)=>{
+            //console.log(err)
           })
         },
         deep: true,
@@ -112,7 +92,7 @@
       }
     },
     mounted() {
-      // this.init()
+
     }
   }
 </script>

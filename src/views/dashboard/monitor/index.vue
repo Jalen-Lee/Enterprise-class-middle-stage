@@ -33,7 +33,7 @@
 
   import SelectBox from "@/components/SelectBox/index";
   export default {
-    name: "index",
+    name: "dashboard-monitor",
     components: {SelectBox},
     methods:{
       reset(nodes){

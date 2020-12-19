@@ -6,7 +6,10 @@
 
 <script>
   export default {
-    name: "account-settings"
+    name: "account-settings",
+    created() {
+      console.log("account-settings 被创建了")
+    }
   }
 </script>
 
