@@ -20,10 +20,13 @@
       }
     }
   }
-  .CodeMirror{
+  .code-editor-main{
     height: calc(100% - 30px);
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
-    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    border-radius: 0 0 5px 5px;
+    .CodeMirror{
+      flex: 1;
+      height: 100%;
+      font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    }
   }
 }

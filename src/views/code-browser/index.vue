@@ -1,20 +1,20 @@
 <template>
   <div class="code-browser-wrap">
-    <div class="code-browser-wrap-file">
-      <files-tree
-          :dir="dir"
-          @node-click="handleNodeClick"
-      ></files-tree>
-    </div>
-    <div class="code-browser-wrap-code">
-      <code-editor
-          :code="code"
-          mode="javascript"
-          editor-theme="mac"
-          code-theme="base16-dark"
-          :read-only="true"
-        ></code-editor>
-    </div>
+    <code-editor
+        v-model="code"
+        mode="javascript"
+        editor-theme="mac"
+        code-theme="base16-dark"
+        :read-only="false"
+    >
+      <template slot="left">
+        <files-tree
+            :dir="dir"
+            @node-click="handleNodeClick"
+        ></files-tree>
+      </template>
+
+    </code-editor>
   </div>
 </template>
 
@@ -69,7 +69,7 @@
   .code-browser-wrap{
     width: 100%;
     height: 100%;
-    display: flex;
+    overflow: hidden;
     &-file{
       padding-right: 12px;
       flex: 0 0 29.16666667%;

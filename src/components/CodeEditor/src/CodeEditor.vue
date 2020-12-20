@@ -8,7 +8,15 @@
       <span class="code-editor-header-icon" @click="handleSelectAll"><i class="iconfont icon-complete"></i></span>
       <span class="code-editor-header-icon" @click="handleExport"><i class="iconfont icon-bottom"></i></span>
     </div>
-    <textarea ref="editor"/>
+    <div class="code-editor-main">
+      <div class="code-editor-main-left">
+        <slot name="left"></slot>
+      </div>
+      <textarea ref="editor"/>
+      <div class="code-editor-main-right">
+        <slot name="right"></slot>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,6 +41,9 @@ import 'codemirror/mode/htmlmixed/htmlmixed'
 import 'codemirror/mode/markdown/markdown'
 import 'codemirror/mode/python/python'
 
+//全屏
+import  'codemirror/addon/display/fullscreen'
+import  'codemirror/addon/display/fullscreen.css'
 
 
 import {
@@ -42,6 +53,11 @@ import {
 
 export default {
   name: "CodeEditor",
+  //自定义组件v-model
+  model:{
+    prop:'code',
+    event: 'change'
+  },
   data(){
     return{
       editor: null,
@@ -88,9 +104,10 @@ export default {
       type:String,
       default: 'mac'
     },
+    //是否只读
     readOnly:{
       type:Boolean,
-      default:false
+      default: false
     }
   },
   methods:{
@@ -98,12 +115,12 @@ export default {
     configInit(){
       importCodeTheme(this.codeTheme)
       importEditorTheme(this.editorTheme)
-      console.log(this.$options.props)
+      // console.log(this.$options.props)
     },
     //编辑器初始化
     editorInit(){
-      console.log("CodeMirror.modes",CodeMirror.modes)
-      console.log("CodeMirror.mimeModes",CodeMirror.mimeModes)
+      // console.log("CodeMirror.modes",CodeMirror.modes)
+      // console.log("CodeMirror.mimeModes",CodeMirror.mimeModes)
       this.editor = CodeMirror.fromTextArea(this.$refs.editor, {
         value: this.code,
         mode: this.mode,
@@ -114,13 +131,15 @@ export default {
         indentWithTabs: true,
         smartIndent: true,
         scrollbarStyle: this.scrollbarStyle,
-        readOnly: this.readOnly
+        readOnly: this.readOnly,
+        //全屏
+        fullScreen : false,
+
       })
       this.editor.setValue(this.code)
       // 代码自动提示功能，记住使用cursorActivity事件不要使用change事件，这是一个坑，那样页面直接会卡死
       this.editor.on('change', cm => {
         this.$emit('change', cm.getValue())
-        console.log(cm.getValue())
       })
     },
     //复制
@@ -129,7 +148,7 @@ export default {
     },
     //全选
     handleSelectAll(){
-      this.editor.execCommand('selectAll')
+      this.editor.execCommand('')
     },
     //导出
     handleExport(){
@@ -138,7 +157,9 @@ export default {
   },
   watch:{
     code(newVal,oldVal){
-      this.editor.setValue(newVal)
+      if(newVal !== this.editor.getValue()){
+        this.editor.setValue(newVal)
+      }
     },
     mode(nv,ov){
       this.editor.setOption('mode',nv)
@@ -165,6 +186,7 @@ export default {
     min-width: 300px;
     min-height: 400px;
     text-align: left;
+    overflow: hidden;
     .code-editor-header{
       display: flex;
       align-items: center;
@@ -183,6 +205,22 @@ export default {
         &:not(:last-child){
           margin-right: 10px;
         }
+      }
+    }
+    .code-editor-main{
+      width: 100%;
+      display: flex;
+      .CodeMirror{
+        flex: 1;
+        height: 100%;
+      }
+      .code-editor-main-left{
+        height: 100%;
+        background: red;
+      }
+      .code-editor-main-right{
+        height: 100%;
+        background: aqua;
       }
     }
   }
