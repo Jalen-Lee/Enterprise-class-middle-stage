@@ -29,10 +29,9 @@
 
 <style scoped lang="scss">
   .app-main-wrapper{
-    //margin-top: 108px;
-    height: 100%;
-    //height: calc(100vh - 108px);
-    padding: 128px 20px 10px;
-    overflow: scroll;
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    padding: 20px;
+    overflow: hidden;
   }
 </style>

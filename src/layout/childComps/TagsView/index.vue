@@ -99,6 +99,7 @@
 
 <style scoped lang="scss">
   .tags-view-wrapper{
+    width: 100%;
     height: 44px;
     padding: 6px 12px;
     display: flex;

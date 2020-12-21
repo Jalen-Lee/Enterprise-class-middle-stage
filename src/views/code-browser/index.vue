@@ -1,20 +1,22 @@
 <template>
   <div class="code-browser-wrap">
-    <code-editor
-        v-model="code"
-        mode="javascript"
-        editor-theme="mac"
-        code-theme="base16-dark"
-        :read-only="false"
-    >
-      <template slot="left">
-        <files-tree
-            :dir="dir"
-            @node-click="handleNodeClick"
-        ></files-tree>
-      </template>
+    <div class="code-editor-container">
+      <code-editor
+          v-model="code"
+          mode="javascript"
+          editor-theme="mac"
+          code-theme="base16-dark"
+          :read-only="false"
+      >
+        <template slot="left">
+          <files-tree
+              :dir="dir"
+              @node-click="handleNodeClick"
+          ></files-tree>
+        </template>
 
-    </code-editor>
+      </code-editor>
+    </div>
   </div>
 </template>
 
@@ -68,22 +70,9 @@
 <style scoped lang="scss">
   .code-browser-wrap{
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    &-file{
-      padding-right: 12px;
-      flex: 0 0 29.16666667%;
-      max-width: 29.16666667%;
-      height: 100%;
-      overflow: scroll;
-    }
-    &-code{
-      padding-left: 12px;
-      flex: 0 0 70.83333333%;
-      max-width: 70.83333333%;
-      //background: aqua;
-      height: 100%;
-      overflow: hidden;
+    .code-editor-container{
+      width: 100%;
+      height: calc(100vh - 148px);
     }
   }
 </style>

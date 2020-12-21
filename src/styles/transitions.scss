@@ -46,3 +46,22 @@
 .breadcrumb-leave-active {
   position: absolute;
 }
+
+
+/* fade-transform-up */
+.tagsview-fade-leave-active,
+.tagsview-fade-enter-active {
+  position: absolute;
+  transition: all .3s;
+  z-index: -1;
+}
+
+.tagsview-fade-enter {
+  //opacity: 0;
+  transform: translateY(-44px);
+}
+
+.tagsview-fade-leave-to {
+  //opacity: 0;
+  transform: translateY(-44px);
+}
