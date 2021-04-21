@@ -5,7 +5,7 @@ import store from './store'
 import 'normalize.css/normalize.css'
 import '@/icon/iconfont.css'
 import CodeEditor from "@/components/CodeEditor";
-//import '@/styles/index.scss'
+import '@/styles/index.scss'
 import ElementUI  from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import request from "@/utils/request";
@@ -14,6 +14,8 @@ import filters from "@/filters";
 import directives from "@/directives"
 import clipboard from "@/utils/clipboard";
 import globalComps from "@/components";
+
+import './icon/svg'
 
 Vue.use(ElementUI )
 Vue.use(CodeEditor)

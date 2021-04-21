@@ -7,11 +7,14 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@bytemd/plugin-gfm": "^1.9.0",
+    "@bytemd/vue": "^1.9.0",
     "axios": "^0.21.0",
     "clipboard": "^2.0.6",
     "codemirror": "^5.58.3",
     "core-js": "^3.6.5",
     "echarts": "^4.9.0",
+    "editor.md": "^1.5.0",
     "element-ui": "^2.14.0",
     "file-saver": "^2.0.5",
     "highlight.js": "^10.4.1",

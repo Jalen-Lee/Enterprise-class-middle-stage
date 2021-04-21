@@ -231,5 +231,5 @@ const rule = {
     array,
     code
 }
-
+console.log(rule)
 export default rule

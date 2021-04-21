@@ -36,10 +36,10 @@ const actions = {
   sysInit: ({commit})=>{
     //tagsView初始化
     commit('tagsView/init')
-    //移除加载动画
-    setTimeout(()=>{
-      document.body.removeChild(document.getElementById('loading-wrapper'))
-    },3000)
+    // //移除加载动画
+    // setTimeout(()=>{
+    //   document.body.removeChild(document.getElementById('loading-wrapper'))
+    // },3000)
   },
   login: ({commit},userForm)=>{
     return new Promise((resolve, reject) => {

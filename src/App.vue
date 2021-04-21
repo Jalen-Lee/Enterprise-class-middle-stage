@@ -23,7 +23,11 @@ export default {
   async created() {
     //await this.handleCheckAuth()
     //状态管理初始化
+    console.log(process.env)
     await this.$store.dispatch('sysInit')
+    this.$request({
+      url: ''
+    })
   },
 }
 </script>

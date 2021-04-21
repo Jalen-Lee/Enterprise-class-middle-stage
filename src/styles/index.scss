@@ -1,34 +1,54 @@
+@import 'element-ui';
+@import 'mixins';
+@import 'transitions';
+@import 'variable';
+@import "mobile";
 
-html {
+html,body{
+  margin: 0;
+  padding: 0;
+}
+
+#app, body, html {
   height: 100%;
-  box-sizing: border-box;
 }
 
 body {
-  height: 100%;
-  background-color: #f0f2f5;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  color: rgb(0,0,0);
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+    //font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  background-color: #f7f7f7;
+  font-feature-settings: "tnum","tnum";
 }
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #fff;
+  background: #1890ff;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none
+}
+
+svg:not(:root) {
+  overflow: hidden
+}
+
 
 label {
   font-weight: 700;
 }
 
 
-#app {
-  height: 100%;
-}
 
-
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 .no-padding {
   padding: 0px !important;

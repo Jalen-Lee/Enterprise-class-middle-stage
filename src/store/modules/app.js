@@ -1,12 +1,16 @@
 
 const state = {
-    sideBar:{
-        open: true
+    device:{
+      type:''
+    },
+    aside:{
+        open: true,
+        mobileOpen:false
     },
     header:{
         fixed: true
     },
-    tagsView:{
+    viewTabs:{
         show: true
     },
     settingPanel:{
@@ -15,17 +19,23 @@ const state = {
 }
 
 const mutations = {
-    toggleSideBar: state=>{
-        state.sideBar.open = !state.sideBar.open
+    toggleAside: state=>{
+        if(state.device.type === 'Desktop')
+            state.aside.open = !state.aside.open
+        else
+            state.aside.mobileOpen = !state.aside.mobileOpen
     },
     toggleHeaderFixed: state=>{
         state.header.fixed = !state.header.fixed
     },
     toggleTagsView: state=>{
-        state.tagsView.show = !state.tagsView.show
+        state.viewTabs.show = !state.viewTabs.show
     },
     toggleSettingPanelOpen: state=>{
         state.settingPanel.open = !state.settingPanel.open
+    },
+    toggleDevice:(state,payload)=>{
+        state.device.type = payload.type
     }
 }
 

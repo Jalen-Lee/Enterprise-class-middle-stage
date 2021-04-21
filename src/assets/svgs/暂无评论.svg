@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="178" height="130" viewBox="0 0 178 130">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="矩形_844" data-name="矩形 844" width="178" height="130" transform="translate(1318 898)" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e9e9e9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#dcdcdc"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f1f1f1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-5" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#dedede"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-7" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-9" x1="0.213" y1="1.265" x2="0.846" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f5f5f5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-10" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#c5c5c5"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="暂无评论" transform="translate(-2018 -236)">
+    <g id="服务器异常" transform="translate(700 -662)">
+      <g id="蒙版组_16" data-name="蒙版组 16" clip-path="url(#clip-path)">
+        <g id="组_414" data-name="组 414">
+          <g id="组_409" data-name="组 409" transform="translate(1328.588 898)">
+            <path id="路径_285" data-name="路径 285" d="M0,10.795,36.6,0V93.779L0,104.574Z" transform="translate(17.878 11.142)" fill="url(#linear-gradient)"/>
+            <path id="路径_286" data-name="路径 286" d="M-8.492,10.642-26.361-.469v93.78l17.868,11.111Z" transform="translate(26.37 11.293)" fill="url(#linear-gradient-2)"/>
+            <path id="路径_287" data-name="路径 287" d="M-8.5,5.55,28.106-5.3,10.228-16.437l-36.6,10.845Z" transform="translate(26.375 16.438)" fill="url(#linear-gradient-3)"/>
+          </g>
+          <g id="组_410" data-name="组 410" transform="translate(1426.701 899.737)">
+            <path id="路径_288" data-name="路径 288" d="M0,10.539,35.741,0V91.56L0,102.1Z" transform="translate(17.457 10.88)" fill="url(#linear-gradient-3)"/>
+            <path id="路径_289" data-name="路径 289" d="M-8.913,10.38-26.361-.469V91.093l17.448,10.848Z" transform="translate(26.37 11.038)" fill="url(#linear-gradient-5)"/>
+            <path id="路径_290" data-name="路径 290" d="M-8.918,5.032,26.823-5.558,9.366-16.437-26.375-5.848Z" transform="translate(26.375 16.438)" fill="url(#linear-gradient-3)"/>
+          </g>
+          <g id="组_411" data-name="组 411" transform="translate(1358.616 929.192)">
+            <path id="路径_291" data-name="路径 291" d="M0,9.137,30.839,0V79.381L0,88.519Z" transform="translate(15.062 9.387)" fill="url(#linear-gradient-7)"/>
+            <path id="路径_292" data-name="路径 292" d="M-11.306,8.936l-15.054-9.4V78.913l15.054,9.4Z" transform="translate(26.369 9.588)" fill="url(#linear-gradient-2)"/>
+            <path id="路径_293" data-name="路径 293" d="M-11.313,2.087,19.526-7.05,4.464-16.437-26.375-7.3Z" transform="translate(26.375 16.438)" fill="url(#linear-gradient-9)"/>
+          </g>
+          <path id="减去_130" data-name="减去 130" d="M178,53H0A51.361,51.361,0,0,1,10.453,32.048,74.532,74.532,0,0,1,30.195,15.237,103.3,103.3,0,0,1,57.089,4.058a127.515,127.515,0,0,1,63.823,0,103.3,103.3,0,0,1,26.894,11.179,74.532,74.532,0,0,1,19.741,16.811A51.363,51.363,0,0,1,178,53Z" transform="translate(1318 974.549)" fill="url(#linear-gradient-10)"/>
+        </g>
+      </g>
+    </g>
+    <path id="联合_73" data-name="联合 73" d="M13.336-3556.391A8.234,8.234,0,0,1,7.219-3554C3.232-3554,0-3556.284,0-3559.1c0-2.065,1.737-3.843,4.235-4.646a4.781,4.781,0,0,1-.11-1.021c0-3.442,3.694-6.233,8.25-6.233,4.331,0,7.882,2.521,8.223,5.727q.771-.059,1.574-.06c5.98,0,10.828,2.537,10.828,5.666S28.152-3554,22.172-3554A15.4,15.4,0,0,1,13.336-3556.391Z" transform="translate(2106.818 3845)" fill="#d9d9d9"/>
+    <path id="联合_61" data-name="联合 61" d="M12.932-3558.109A8.414,8.414,0,0,1,7-3556c-3.866,0-7-2.015-7-4.5,0-1.822,1.684-3.391,4.107-4.1a3.858,3.858,0,0,1-.107-.9c0-3.037,3.582-5.5,8-5.5,4.2,0,7.643,2.224,7.974,5.053q.748-.052,1.526-.052c5.8,0,10.5,2.239,10.5,5s-4.7,5-10.5,5A16.045,16.045,0,0,1,12.932-3558.109Z" transform="translate(2107.818 3846)" fill="#fff"/>
+    <ellipse id="椭圆_418" data-name="椭圆 418" cx="20.5" cy="3.5" rx="20.5" ry="3.5" transform="translate(2088 331)" fill="#d8d8d8"/>
+    <g id="组_422" data-name="组 422" transform="matrix(0.996, 0.087, -0.087, 0.996, 1251.935, -472.632)">
+      <g id="组_359" data-name="组 359" transform="translate(930.54 719.821) rotate(166)">
+        <path id="减去_56" data-name="减去 56" d="M0,18.374A15.968,15.968,0,0,1,8.316,4.691q-.2-.274-.432-.573C6.894,2.854,5.521.948,7.157.187c1.06-.426,3.86-.1,8.726.762a26.631,26.631,0,0,1,4.205,1.159c9.314.782,16.6,7.767,16.6,16.267,0,9.024-8.214,16.339-18.346,16.339S0,27.4,0,18.374Z" transform="translate(0 0)" fill="#bebebe"/>
+      </g>
+      <g id="组_357" data-name="组 357" transform="translate(919.058 705.397) rotate(166)">
+        <ellipse id="椭圆_249" data-name="椭圆 249" cx="2.133" cy="2.133" rx="2.133" ry="2.133" transform="translate(0 0)" fill="#fff"/>
+        <ellipse id="椭圆_250" data-name="椭圆 250" cx="2.133" cy="2.133" rx="2.133" ry="2.133" transform="translate(8.531 0)" fill="#fff"/>
+        <ellipse id="椭圆_251" data-name="椭圆 251" cx="2.133" cy="2.133" rx="2.133" ry="2.133" transform="translate(17.063 0)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="组_424" data-name="组 424" transform="matrix(0.978, -0.208, 0.208, 0.978, -21.938, 445.865)">
+      <g id="组_423" data-name="组 423" transform="translate(2114.752 302.678) rotate(14)">
+        <path id="减去_56-2" data-name="减去 56" d="M5.584,26.935c-1.277-.594-.205-2.081.567-3.066q.178-.233.337-.448A12.457,12.457,0,0,1,0,12.747C0,5.707,6.408,0,14.312,0S28.624,5.707,28.624,12.747c0,6.63-5.684,12.078-12.949,12.69a20.788,20.788,0,0,1-3.283.9,38.333,38.333,0,0,1-5.707.74A3.106,3.106,0,0,1,5.584,26.935Z" transform="translate(0 0)" fill="#fff"/>
+      </g>
+      <g id="组_357-2" data-name="组 357" transform="translate(2117.963 314.473) rotate(14)">
+        <circle id="椭圆_249-2" data-name="椭圆 249" cx="1.664" cy="1.664" r="1.664" transform="translate(0)" fill="#b2b2b2"/>
+        <circle id="椭圆_250-2" data-name="椭圆 250" cx="1.664" cy="1.664" r="1.664" transform="translate(6.656)" fill="#b2b2b2"/>
+        <circle id="椭圆_251-2" data-name="椭圆 251" cx="1.664" cy="1.664" r="1.664" transform="translate(13.311)" fill="#b2b2b2"/>
+      </g>
+      <g id="组_359-2" data-name="组 359" transform="translate(2114.752 302.678) rotate(14)">
+        <path id="减去_56-3" data-name="减去 56" d="M6.685,27.081a3.085,3.085,0,0,1-1.1-.146.934.934,0,0,1-.566-.623c-.16-.67.451-1.57,1.134-2.443.089-.117.174-.229.256-.338l.085-.113A12.44,12.44,0,0,1,0,12.747C0,5.718,6.421,0,14.312,0S28.624,5.718,28.624,12.747a11.973,11.973,0,0,1-3.754,8.6,14.975,14.975,0,0,1-9.194,4.093,20.856,20.856,0,0,1-3.284.905A37.456,37.456,0,0,1,6.685,27.081ZM14.312,2.275c-6.484,0-11.759,4.7-11.759,10.472a10.38,10.38,0,0,0,6.527,9.377c.255.061.516.121.774.177-.2.305-.4.584-.585.831-.231.295-.447.537-.621.732-.286.322-.459.515-.42.623.018.049.078.078.19.094H8.47c.809,0,5.131-.989,5.174-1,.007,0,.7-.2,1.626-.521.246.016.5.031.761.044,5.723-.749,10.038-5.2,10.038-10.36C26.07,6.973,20.8,2.275,14.312,2.275Z" transform="translate(0 0)" fill="#707070"/>
+      </g>
+    </g>
+  </g>
+</svg>

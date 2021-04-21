@@ -1,8 +1,10 @@
 <template>
-  <div :class="['sidebar-wrapper',collapsed?'sidebar-wrapper--collapse':'']">
+  <aside
+      class="gre-sidebar-fixed gre-sidebar"
+      :class="[collapsed?'gre-sidebar--collapse':'']">
     <logo></logo>
     <el-menu
-        class="sidebar-body"
+        class="gre-sidebar-menu"
         :collapse="collapsed"
         :background-color="sideBarConfig.backgroundColor"
         :text-color="sideBarConfig.textColor"
@@ -19,7 +21,7 @@
             :item="item"
           />
     </el-menu>
-  </div>
+  </aside>
 </template>
 
 <script>
@@ -64,7 +66,13 @@
 </script>
 
 <style scoped lang="scss">
-  .sidebar-wrapper{
+  .gre-sidebar-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+  }
+  .gre-sidebar{
     width: 256px;
     max-width: 256px;
     height: 100%;
@@ -75,7 +83,7 @@
     &--collapse{
       width: 64px;
     }
-    .sidebar-body{
+    &-menu{
       border-right: none;
       &:not(.el-menu--collapse){
         width: 100%;

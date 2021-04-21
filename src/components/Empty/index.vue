@@ -1,41 +1,26 @@
 <template>
   <div
       class="empty-wrapper"
-      :style="{
-        color:color,
-        fontSize: fontSize
-      }"
       v-if="show">
-      <icon :name="icon[mode].name" :size="iconSize" :color="iconColor"/>
-      <div class="empty-slot">
-        <slot>{{text ? text : icon[mode].text}}</slot>
-      </div>
+    <img :src="_imgSrc" :alt="this.type" class="empty-img">
+    <div class="empty-text">
+      <slot name="text">
+        <span >{{text}}</span>
+      </slot>
+    </div>
+    <div class="empty-slot">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <script>
+  import svgMap from "@/assets/svgs";
   export default {
     name: "empty",
     data(){
       return {
-        icon:{
-          data:{
-            name:'icon-wuneirong',
-            text:'无内容'
-          },
-          notice:{
-            name:'icon-zanwutongzhi',
-            text:'无消息'
-          },
-          search:{
-            name:'icon-wujilu',
-            text:'无记录'
-          },
-          list:{
-            name:'icon-liebiaoweikong',
-            text:'列表为空'
-          }
-        }
+
       }
     },
     props:{
@@ -43,30 +28,26 @@
         type:Boolean,
         default:false
       },
-      mode:{
+      type:{
         type:String,
-        default: 'data'
+        default:"暂无数据"
+      },
+      customImg:{
+        type:String,
+        default: ''
       },
       text:{
         type:String,
-        default:"无内容"
-      },
-      color:{
-        type:String,
-        default:'rgb(192, 196, 204)'
-      },
-      fontSize:{
-        type:[Number,String],
-        default:'18px'
-      },
-      iconColor:{
-        type:String,
-        default:'rgb(192, 196, 204)'
-      },
-      iconSize:{
-        type:[String,Number],
-        default:"60px"
+        default:'暂无数据'
       }
+    },
+    computed:{
+      _imgSrc(){
+        return svgMap[this.type + '.svg']
+      }
+    },
+    mounted() {
+
     }
   }
 </script>
@@ -77,13 +58,19 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     padding: 73px 0 88px;
+    .empty-img{
+      width: 30%;
+      height: 30%;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    .empty-text{
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
     .empty-slot{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
+
     }
   }
 </style>

@@ -250,25 +250,27 @@ const router = createRouter()
 //全局前置守卫
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
-  const hasToken = getToken()
+  // const hasToken = getToken()
+  const hasToken = true
 
-  if(hasToken){
-    // console.log(to.path)
-    if (to.path === '/login') {
-      // 如果已登录，则跳转至主页
-      next({ path: '/' })
-      NProgress.done() // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
-    } else {
-      next()
-      NProgress.done()
-    }
-  }else{
-    if(routeWhiteList.indexOf(to.path) !== -1){
-      next()
-    }else{
-      next(`/login?redirect=${to.path}`)
-    }
-  }
+  // if(hasToken){
+  //   // console.log(to.path)
+  //   if (to.path === '/login') {
+  //     // 如果已登录，则跳转至主页
+  //     next({ path: '/' })
+  //     NProgress.done() // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
+  //   } else {
+  //     next()
+  //     NProgress.done()
+  //   }
+  // }else{
+  //   if(routeWhiteList.indexOf(to.path) !== -1){
+  //     next()
+  //   }else{
+  //     next(`/login?redirect=${to.path}`)
+  //   }
+  // }
+  next()
 })
 
 //全局后置守卫

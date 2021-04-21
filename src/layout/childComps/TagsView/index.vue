@@ -106,6 +106,7 @@
     justify-content: space-between;
     box-shadow: 1px 1px 3px 0 rgba(0,0,0,.12), 0 0 3px 0 rgba(0,0,0,.04);
     background-color: #f7f7f7;
+    box-sizing: border-box;
     &>*{
       display: inline-block;
     }
